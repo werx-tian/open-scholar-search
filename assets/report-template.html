@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{TITLE}}</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #667085;
+      --line: #d8dee8;
+      --paper: #ffffff;
+      --canvas: #f5f7fa;
+      --accent: #0f766e;
+      --accent-soft: #e6f4f1;
+      --warn: #9a6700;
+      --warn-soft: #fff7df;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font: 15px/1.72 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+    main { max-width: 1240px; margin: 0 auto; padding: 40px 28px 72px; }
+    header, section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+    h1, h2, h3 { line-height: 1.3; margin: 0 0 14px; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 22px; border-left: 4px solid var(--accent); padding-left: 12px; }
+    h3 { font-size: 17px; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .notice {
+      background: var(--warn-soft);
+      border: 1px solid #f1d58a;
+      color: #5e4600;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th, td { padding: 9px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { position: sticky; top: 0; z-index: 2; background: #edf3f5; color: #344054; }
+    tbody tr:last-child td { border-bottom: 0; }
+    code { background: #eef2f6; border-radius: 5px; padding: 2px 5px; }
+    a { color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card { border: 1px solid var(--line); border-radius: 10px; padding: 14px; break-inside: avoid; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } main { padding: 20px 12px; } header, section { padding: 18px; } }
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 0; }
+      header, section { border: 0; padding: 0 0 18px; margin: 0 0 18px; }
+      th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      table, .card, .notice { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>{{TITLE}}</h1>
+    <p class="meta">生成日期：{{GENERATED_AT}} · 检索范围：{{SCOPE}}</p>
+    <p>{{EXECUTIVE_SUMMARY}}</p>
+    <div class="notice">数据可得性：{{AVAILABILITY_SUMMARY}}</div>
+  </header>
+
+  <section>
+    <h2>检索过程与数据可得性</h2>
+    <p><strong>实际检索式：</strong><code>{{SEARCH_FORMULA}}</code></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>来源</th><th>状态</th><th>命中</th><th>说明</th></tr></thead>
+        <tbody>{{AVAILABILITY_ROWS}}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>证据分级说明</h2>
+    <p>直接证据 <span class="badge">S0-L0</span> 优先；近缘或上位层证据按更弱的一轴降权。每条结论同时标注对象外推轴与概念层级轴。</p>
+  </section>
+
+  <section>
+    <h2>核心文献清单</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>题录</th><th>对象/规格</th><th>处理</th><th>主要结论</th><th>OA</th><th>坐标</th></tr></thead>
+        <tbody>{{LITERATURE_ROWS}}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>专题归纳</h2>
+    <div class="grid">{{SYNTHESIS_CARDS}}</div>
+  </section>
+
+  <section>
+    <h2>横向汇总</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>对象</th><th>条件</th><th>处理梯度</th><th>结论/推荐值</th><th>判据</th><th>坐标</th><th>来源</th></tr></thead>
+        <tbody>{{CROSS_TABLE_ROWS}}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>实践启示与外推限制</h2>
+    {{IMPLICATIONS_HTML}}
+    <p class="notice">上位层的宿主特异性、流行病学、效应量与安全阈值不得直接反推目标对象；扩展层证据必须在报告中降权呈现。</p>
+  </section>
+</main>
+</body>
+</html>

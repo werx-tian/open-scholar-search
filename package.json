@@ -1,0 +1,43 @@
+{
+  "name": "open-scholar-search",
+  "version": "2.0.0",
+  "description": "Open-API-first literature search, open-access resolution, evidence layering, and reference export.",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "literature-search",
+    "academic-research",
+    "openalex",
+    "crossref",
+    "europepmc",
+    "open-access",
+    "bibtex",
+    "evidence-grading"
+  ],
+  "homepage": "https://github.com/werx-tian/open-scholar-search#readme",
+  "bugs": {
+    "url": "https://github.com/werx-tian/open-scholar-search/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/werx-tian/open-scholar-search.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "api-search": "scripts/api-search.js",
+    "expand-query": "scripts/expand-query.js",
+    "oa-resolve": "scripts/oa-resolve.js",
+    "lit-export": "scripts/cnki-export.js",
+    "portal-grab": "scripts/cnki-grab.js",
+    "cdp-fetch": "scripts/cdp-fetch.js",
+    "lit-pipeline": "scripts/pipeline.js",
+    "lit-selftest": "scripts/selftest.js"
+  },
+  "scripts": {
+    "test": "node test/run.js",
+    "release-check": "node scripts/release-check.js",
+    "probe": "node scripts/selftest.js --probe"
+  }
+}

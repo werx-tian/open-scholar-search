@@ -1,0 +1,33 @@
+{
+  "seed": "Aeromonas hydrophila",
+  "layers": [
+    {
+      "level": 0,
+      "label": "L0 本种直接证据",
+      "evidenceNature": "A 直接证据",
+      "query": "(Aeromonas hydrophila OR 嗜水气单胞菌) AND (infection OR virulence OR vaccine)",
+      "limit": 50,
+      "scope": "title-abs"
+    },
+    {
+      "level": 1,
+      "label": "L1 同属近缘证据",
+      "evidenceNature": "B 近缘证据",
+      "query": "Aeromonas AND (infection OR virulence OR vaccine)",
+      "limit": 30,
+      "scope": "title-abs",
+      "minCitations": 20,
+      "caution": "同属其他种的宿主特异性和毒力结论不能直接外推到嗜水气单胞菌。"
+    },
+    {
+      "level": 2,
+      "label": "L2 科/类群背景",
+      "evidenceNature": "C 上位类群背景",
+      "query": "Aeromonadaceae AND (infection OR virulence OR vaccine)",
+      "limit": 20,
+      "scope": "title",
+      "minCitations": 50,
+      "caution": "上位类群层仅用于机制和背景，不用于估计本种效应大小。"
+    }
+  ]
+}

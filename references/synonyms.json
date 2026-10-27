@@ -1,0 +1,21 @@
+{
+  "嗜水气单胞菌": {
+    "synonyms": [
+      "嗜水汽单胞菌",
+      "亲水气单胞菌",
+      "嗜水假单胞菌"
+    ],
+    "latin": "Aeromonas hydrophila",
+    "english": "Aeromonas hydrophila"
+  },
+  "投喂频率": {
+    "synonyms": [
+      "投喂次数",
+      "日投喂次数",
+      "给食频率",
+      "摄食频率"
+    ],
+    "latin": "",
+    "english": "feeding frequency"
+  }
+}

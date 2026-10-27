@@ -1,0 +1,10 @@
+node_modules/
+**/output/
+*.pipeline.json
+*-hits.jsonl
+*-with-oa.jsonl
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+!examples/*.jsonl

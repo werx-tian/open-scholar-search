@@ -1,0 +1,5 @@
+interface:
+  display_name: "Open Scholar Search"
+  short_description: "开放 API 优先的学术文献检索、全文定位与证据分级"
+  brand_color: "#0F766E"
+  default_prompt: "Use $open-scholar-search to find literature, resolve open-access links, and produce an evidence-graded report."
