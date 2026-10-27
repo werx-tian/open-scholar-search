@@ -1,5 +1,7 @@
 # Open Scholar Search
 
+**English** | [简体中文](README.zh-CN.md)
+
 Open-API-first literature search, open-access resolution, evidence layering, and reference export. The skill works without institutional access and degrades source by source instead of aborting the whole batch.
 
 ## What it is especially good for
